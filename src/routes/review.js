@@ -21,4 +21,11 @@ router.get('/review', async (req, res, next) => {
   res.status(200).send(allReviews);
 });
 
+// DELETE review
+router.delete('/review/:id', async (req, res, next) => {
+  let { id } = req.params;
+  let deleteReview = await reviewInterface.delete(id);
+  res.status(200).send(deleteReview);
+});
+
 module.exports = router;
